@@ -8,7 +8,7 @@
 
 This repository is one of the activities of the [Free Software Club from the University of Córdoba](https://uco.es/aulasoftwarelibre) and has only educational purposes.
 
-"NosFaltaUno" is a notice board for people with common interests to contact each other.
+"NosFaltaUno" is a notice board that allows you to find people with your same interests.
 
 This repository contains the backend of the application.
 
