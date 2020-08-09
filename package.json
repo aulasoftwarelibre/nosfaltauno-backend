@@ -2,9 +2,9 @@
   "name": "nosfaltauno-backend",
   "version": "0.0.1",
   "description": "",
-  "author": "",
+  "author": "Aula de Software Libre <aulasoftwarelibre@uco.es",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "agpl-3.0",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
