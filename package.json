@@ -18,7 +18,11 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "precypress:test": "pm2 start npm -- run start:test",
+    "cypress:test": "cypress run",
+    "postcypress:test": "pm2 delete npm",
+    "cypress:open": "cypress open -d"
   },
   "dependencies": {
     "@nestjs/common": "^7.0.0",
@@ -48,6 +52,7 @@
     "@types/supertest": "^2.0.8",
     "@typescript-eslint/eslint-plugin": "^3.8.0",
     "@typescript-eslint/parser": "^3.8.0",
+    "cypress": "^4.12.1",
     "eslint": "^7.6.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-import": "^2.20.1",
