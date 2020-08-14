@@ -1,12 +1,11 @@
-import { ValueObject } from "src/core/domain";
-import { EmptyUseremailError } from "../exception/empty-useremail.error";
+import { ValueObject } from '../../../core/domain';
+import { EmptyUseremailError } from '../exception/empty-useremail.error';
 
-
-interface Props{
+interface Props {
   value: string;
 }
 
-export class UserEmail extends ValueObject<Props>{
+export class UserEmail extends ValueObject<Props> {
   static fromString(value: string): UserEmail {
     if (value.length === 0) {
       throw new EmptyUseremailError();

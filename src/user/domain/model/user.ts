@@ -58,9 +58,9 @@ export class User extends AggregateRoot {
 
   private onUserWasCreated(event: UserWasCreated) {
     this._userId = UserId.fromString(event.id);
-    this._userName = UserName.fromString(event.username);
-    this._userEmail = UserEmail.fromString(event.useremail);
-    this._userAvatar = UserAvatar.fromString(event.useravatar);
+    this._userName = UserName.fromString(event.name);
+    this._userEmail = UserEmail.fromString(event.email);
+    this._userAvatar = UserAvatar.fromString(event.avatar);
     this._userIsAdmin = UserIsAdmin.fromBoolean(false);
   }
 }
