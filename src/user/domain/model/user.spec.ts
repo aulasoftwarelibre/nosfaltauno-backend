@@ -7,6 +7,7 @@ import { UserEmail } from './user-email';
 import { UserAvatar } from './user-avatar';
 import { Test, TestingModule } from '@nestjs/testing';
 import { UserWasCreated } from '../event/user-was-created.event';
+import { UserWasPromoted } from '../event';
 
 describe('User', () => {
   let user: User;
@@ -20,7 +21,7 @@ describe('User', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [CqrsModule],
+      imports: [CqrsModule],
     }).compile();
 
     eventBus$ = module.get<EventBus>(EventBus);
@@ -43,5 +44,38 @@ describe('User', () => {
         userAvatar.value,
       ),
     );
+  });
+
+  it('has an id', () => {
+    expect(user.id.equals(userId)).toBeTruthy();
+  });
+
+  it('has an name', () => {
+    expect(user.name.equals(userName)).toBeTruthy();
+  });
+
+  it('has an email', () => {
+    expect(user.email.equals(userEmail)).toBeTruthy();
+  });
+
+  it('has an avatar', () => {
+    expect(user.avatar.equals(userAvatar)).toBeTruthy();
+  });
+
+  it('is not admin by default', () => {
+    expect(user.admin.value).toBe(false);
+  });
+
+  it('can be promoted', () => {
+    user = eventPublisher$.mergeObjectContext(user);
+    user.promote();
+    user.commit();
+
+    expect(eventBus$.publish).toHaveBeenCalledTimes(1);
+    expect(eventBus$.publish).toHaveBeenCalledWith(
+      new UserWasPromoted(userId.value),
+    );
+
+    expect(user.admin).toBeTruthy();
   });
 });

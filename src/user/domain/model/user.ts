@@ -1,4 +1,5 @@
 import { AggregateRoot } from '../../../core/domain/models/aggregate-root';
+import { UserWasPromoted } from '../event';
 import { UserWasCreated } from '../event/user-was-created.event';
 import { UserAvatar } from './user-avatar';
 import { UserEmail } from './user-email';
@@ -32,6 +33,10 @@ export class User extends AggregateRoot {
     return user;
   }
 
+  promote() {
+    this.apply(new UserWasPromoted(this._userId.value));
+  }
+
   aggregateId(): string {
     return this._userId.value;
   }
@@ -62,5 +67,9 @@ export class User extends AggregateRoot {
     this._userEmail = UserEmail.fromString(event.email);
     this._userAvatar = UserAvatar.fromString(event.avatar);
     this._userIsAdmin = UserIsAdmin.fromBoolean(false);
+  }
+
+  private onUserWasPromoted(event: UserWasPromoted) {
+    this._userIsAdmin = UserIsAdmin.fromBoolean(true);
   }
 }
