@@ -6,5 +6,6 @@ export class UserWasCreated implements DomainEvent {
     public readonly name: string,
     public readonly email: string,
     public readonly avatar: string,
+    public readonly isAdmin: Boolean,
   ) {}
 }

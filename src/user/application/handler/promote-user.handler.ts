@@ -1,7 +1,7 @@
 import { Inject } from '@nestjs/common';
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 import { UserAlreadyPromotedError } from '../../domain/exception/user-already-promoted';
-import { UserIdNotFoundError } from '../../domain/exception/user-id-not-found';
+import { UserIdNotFoundError } from '../../domain/exception/user-id-not-found.error';
 import { User } from '../../domain/model/user';
 import { UserId } from '../../domain/model/user-id';
 import { USERS, Users } from '../../domain/repository/users';

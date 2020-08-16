@@ -8,6 +8,7 @@ import { UserAvatar } from './user-avatar';
 import { Test, TestingModule } from '@nestjs/testing';
 import { UserWasCreated } from '../event/user-was-created.event';
 import { UserWasPromoted } from '../event';
+import { UserIsAdmin } from './user-is-admin';
 
 describe('User', () => {
   let user: User;
@@ -42,6 +43,7 @@ describe('User', () => {
         userName.value,
         userEmail.value,
         userAvatar.value,
+        false,
       ),
     );
   });

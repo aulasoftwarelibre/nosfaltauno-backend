@@ -16,7 +16,6 @@ import { UserModule } from './user/infrastructure/user.module';
       ],
     }),
     BootstrapModule,
-    ExampleModule,
     UserModule,
   ],
 })

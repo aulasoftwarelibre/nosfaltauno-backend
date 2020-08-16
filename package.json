@@ -33,6 +33,7 @@
     "@nestjs/mongoose": "^7.0.2",
     "@nestjs/platform-express": "^7.0.0",
     "@nestjs/swagger": "^4.5.12",
+    "class-validator": "^0.12.2",
     "geteventstore-promise": "^3.2.1",
     "mongoose": "^5.9.28",
     "reflect-metadata": "^0.1.13",

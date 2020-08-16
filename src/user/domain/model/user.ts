@@ -27,7 +27,13 @@ export class User extends AggregateRoot {
     const user = new User();
 
     user.apply(
-      new UserWasCreated(id.value, name.value, email.value, avatar.value),
+      new UserWasCreated(
+        id.value,
+        name.value,
+        email.value,
+        avatar.value,
+        false,
+      ),
     );
 
     return user;
@@ -66,7 +72,7 @@ export class User extends AggregateRoot {
     this._userName = UserName.fromString(event.name);
     this._userEmail = UserEmail.fromString(event.email);
     this._userAvatar = UserAvatar.fromString(event.avatar);
-    this._userIsAdmin = UserIsAdmin.fromBoolean(false);
+    this._userIsAdmin = UserIsAdmin.fromBoolean(event.isAdmin);
   }
 
   private onUserWasPromoted(event: UserWasPromoted) {
