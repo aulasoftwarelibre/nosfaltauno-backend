@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 
 import { AppModule as ExampleModule } from './app/infrastructure/app.module';
 import { BootstrapModule } from './bootstrap.module';
+import { UserModule } from './user/infrastructure/user.module';
 
 @Global()
 @Module({
@@ -15,7 +16,7 @@ import { BootstrapModule } from './bootstrap.module';
       ],
     }),
     BootstrapModule,
-    ExampleModule,
+    UserModule,
   ],
 })
 export class AppModule {}
