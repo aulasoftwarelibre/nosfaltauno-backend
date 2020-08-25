@@ -1,8 +1,8 @@
 import { Global, Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 
-import { AppModule as ExampleModule } from './app/infrastructure/app.module';
 import { BootstrapModule } from './bootstrap.module';
+import { CategoryModule } from './category/infrastructure/category.module';
 import { UserModule } from './user/infrastructure/user.module';
 
 @Global()
@@ -16,6 +16,7 @@ import { UserModule } from './user/infrastructure/user.module';
       ],
     }),
     BootstrapModule,
+    CategoryModule,
     UserModule,
   ],
 })
