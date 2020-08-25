@@ -2,7 +2,7 @@
   "baseUrl": "http://localhost:5000",
   "video": false,
   "env": {
-    "MONGO_URL": "mongodb://localhost/daruma-test",
+    "MONGO_URL": "mongodb://localhost/nosfaltauno-test",
     "EVENT_STORE_URL": "http://admin:changeit@localhost:2113",
     "EVENT_STORE_CATEGORY": "test"
   }
