@@ -13,7 +13,7 @@ export class CategoryController {
   @ApiResponse({ status: 200, description: 'Get categories' })
   @Get()
   async getCategories(@Request() req): Promise<any[]> {
-    return [];
+    return this.categoryService.getCategories();
   }
 
   @ApiOperation({ summary: 'Create category' })

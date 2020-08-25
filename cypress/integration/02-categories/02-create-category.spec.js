@@ -22,5 +22,19 @@ describe('POST /categories', () => {
     })
       .its('status')
       .should('equal', 204);
+
+    cy.task('sync');
+
+    cy.request({
+      method: 'GET',
+      url: 'categories',
+    })
+      .its('body')
+      .should('deep.equal', [
+        {
+          _id: categoryId,
+          title: 'Sports',
+        },
+      ]);
   });
 });
